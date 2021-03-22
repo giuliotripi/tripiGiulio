@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+}
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+
+   
+<title>tripi_giulio_resumablebw</title>
+</head>
+    
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE | resumableBoundaryWalker <font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+<div class="remark">
+Our motto:<br/>   <k>there is no code without a project, no project
+without problem analysis and no problem without requirements</k>.
+ </div>
+ 
+<h2>Requirements</h2>
+
+ 
+<div class="remark">
+
+	Design and build a software system (named from now on 'the application') that leads the robot described in
+	<a href="https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html" target="lab"><em>VirtualRobot2021.html</em></a>
+	to walk along the boundary of a empty, rectangular room under user control.
+	<br/>
+	More specifically, the <ks>user story</ks> can be summarized as follows:
+	<br/>
+	<table style="width:98%">
+		<tbody>
+
+		<tr>
+			<td style="width:65%" >
+				the robot is initially located at the <ks>HOME</ks> position, as shown in the picture on the right
+			</td>
+			<td><center><img src="./img/emptyGridWithHome.png" alt="emptyGridWithHome" width="35%"></center>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="width:65%" >
+				the application presents to the user a <ks>consoleGui</ks> similar to that shown in the picture on the right
+			</td>
+			<td><center><img src="./img/stopResumeConsole.png" alt="stopResumeConsole" width="35%"></center>
+			</td>
+		</tr>
+
+
+
+		<tr>
+			<td style="width:65%" >
+				when the user hits the button <k>RESUME</k> the robot <ks>starts or continue to walk</ks> along the boundary, while
+				updating a <ks>robot-moves history</ks>;
+			</td>
+			<td>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="width:65%" >
+				when the user hits the button <k>STOP</k> the robot stop its journey, waiting for another <k>RESUME</k> ;
+			</td>
+			<td>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="width:65%" >
+				when the robot reaches its <ks>HOME</ks> again, the application <i>shows the robot-moves history</i> on the standard output device.
+			</td>
+			<td>
+			</td>
+		</tr>
+
+
+		</tbody>
+	</table>
+
+	<h3>Delivery</h3>
+	The customer <ks>hopes to receive</ks> a working prototype (written in Java) of the application by <k>Monday 22 March</k>.
+	The name of this file (in pdf) should be:
+	<pre>
+cognome_nome_resumablebw.pdf
+</pre>
+</div>
+
+ 
+
+<h2>Requirement analysis</h2>
+<div class="remark">
+<ks>DEFINITIONS:</ks>
+<ol>
+	<li><b>robot</b>: object that is able to move on a surface without anyone pushing it. The robot is supplied by the customer and exposes some methods to receive commands.
+	<li><b>room</b>: flat environment. Can be seen as a grid with x, y coordinates
+	<li><b>robot-moves history</b>: map created by the robot that represents the environment as a grid.
+	The robot indicates for each cell in the grid one value for free spaces that it traversed, another value for spaces that the robot did not cross
+	and the position of the robot at the moment of map generation. (aka <ks>map</ks>)
+	<li><b>HOME</b>: position in the environment where the robot starts moving and where it has to return.
+	<li><b>find an obstacle</b>: impact with something.
+</ol>
+<ks>FUNCTIONAL TESTPLANS:</ks><br>
+	It is necessary to check that the robot correctly makes the map of the environment, without using other components or human help.
+	To check that the map is correct, we can assume that the testing environment is always the same.
+</div>
+	<!--
+<h3>User story</h3>
+<div class="remark">
+As a user, I want to place the robot in a starting point. The starting point is in the corner of two walls. The robot is placed correctly oriented so it can directly start going forward without need to rotate.
+When I start the application, I want the robot to do an anti-clockwise trip of the room. I won't be able to stop it. The application must terminate automatically when the robot reaches again the starting point and rotates to reach the same starting position.
+</div>
+-->
+<h2>Problem analysis</h2>
+	<div class="remark">
+<h3>RELEVANT ASPECTS</h3>
+<ol>
+	<li>This is about building a <k>distributed system</k> made by two macro-components:
+	<ul>
+		<li>the robot provided by the client
+		<li>our application that sends commands to the robot in order to accomplish the requirements
+	</ul>
+	<li>As described in <a href='https://htmlpreview.github.io/?https://github.com/anatali/issLab2021/blob/master/it.unibo.virtualRobot2020/userDocs/VirtualRobot2021.html'>VirtualRobot2021.html</a>, the robot can be controlled in two different ways:
+	<ul>
+		<li>sending messages to port <tt>8090</tt> using the HTTP POST protocol
+		<li>sending messages to port <tt>8091</tt> using websockets
+	</ul>
+	To make our application <k>as much as possible independent</k> from the underlying communication protocols,
+	the designer could make reference to proper design pattern like Adapter, Bridge or Facade.
+	<li>The implementation of the mental map constitutes an abstraction gap since we don't know the size of the environment. We can use
+	the class <tt>RobotMovesInfo.java</tt> available in <tt>it.unibo.virtualrobotclient</tt> to save all the moves made by the robot and generate
+	the <ks>map</ks> of the environment.
+	<li>To generate the two buttons of the <ks>GUI</ks> it can be used an already existent class. For example <tt>ConsoleGui.java</tt> (ibidem) seems to be what we need.</li>
+	<li>We can estimate that a first prototype of the application can be realized in no more than one working day.
+</ol>
+
+<h3>LOGICAL ARCHITECTURE</h3>
+	<table>
+		<tr>
+			<td>
+				The graph on the right shows the interaction between the robot and our application.<br>
+				Using websockets, our application sends command to the robot with dispatches and receives dispatches containing both the results of the commands and sonar events.<br>
+			</td>
+			<td>
+				<img src="./img/logicArch1.png" alt="iss_logicArch1" width="100%">
+			</td>
+		</tr>
+	</table>
+	<br>
+	The scheme can be read knowing the legend available at the following <a href="./img/legenda.png" target="_blank">link</a>.<br>
+	Since the VirtualRobot can receive multiple HTTP requests simultaneously, we can send an alarm command while it is executing a moveForward.
+		This means that our application must me asynchronous or threaded.
+<h3>MAIN PROBLEMS</h3>
+<ol>
+	<li>Since the environment is not made of fixed size blocks, it can be difficult for the robot to build a reliable map
+	that takes into account the exact dimension of the obstacles in the room. On the other hand walls are easy-to-remember
+	obstacles.
+</ol>
+		After some testing of the VirtualRobot provided by the customer, we noticed that the behaviour of the two communication
+		methods is <k>NON-CONSISTENT</k>: while it is possible to send <tt>alarm</tt> commands while it is executing another move
+		through HTTP, the reply is different from what we expect reading the documentation and from the websocket communication.<br>
+		<pre>
+#1 [00:00.000] <- {"robotmove":"moveForward","time":8000}
+#2 [00:02.000] <- {"robotmove":"alarm","time":500}
+#3 [00:02.000] the robot stops correctly
+#4 [00:02.500] -> {"endmove":"true","move":"alarm"} [in reply to #2]
+#5 [00:08.000] -> {"endmove":"true","move":"moveForward"} [in reply to #1]
+		</pre>
+		For this reason it is recommended to use the websocket approach rather than the HTTP approach.
+	</div>
+<!--<h3>FUNCTIONAL TESTPLANS</h3>
+	In order to be able to control that the robot correctly did a round trip along the boundaries of the room, it is necessary
+	to check that the robot made 4 turn in the same direction immediately after an impact with a boundary and that it was
+	able to walk at least a bit before the next impact.<br>
+	Since the robot's specifications state that we can set the walking time of the robot, we can use that to say
+	that after the robot turned left, it should go forward without collisions <k>at least</k> once.
+	<br>-->
+<!--<ks>PRODUCT BACKLOCK:</ks><br>
+<ol>
+
+</ol>-->
+
+<h2>Test plans</h2> 
+<div class="remark">
+	In order to be able to check that the applications respects the requirements, we have to control that the robot built the correct <ks>map</ks>
+	The first time we should run the application in a controlled environment and save the map generated, manually controlling that
+	the robot had the attended behaviour. Then in the tests we have to check that the map generated by the robot in the specific
+	execution is the same as what we save as correct map of the environment.
+	<pre>
+		start the robot;
+		wait for it to arrive at half the bottom wall;
+		pause the robot;
+		a = get_current_map();
+		wait some time (at least *2 the standard move time);
+		b = get_current_map();
+		if(a != b) pause failed, test failed;
+		resume the robot;
+
+		wait for it to arrive at the end of the right wall;
+		pause the robot;
+		c = get_current_map();
+		wait some time (at least *2 the standard move time);
+		d = get_current_map();
+		if(b == c) resume failed, test failed;
+		if(c != d) pause failed, test failed;
+		resume the robot;
+
+		//the robot arrives at HOME and stops
+		e = get_current_map();
+		if(e != saved_correct_map) map generation failed, test failed;
+	</pre>
+</div>
+
+<h2>Project</h2> 
+<div class="remark">
+<ks>MAIN GOALS</ks>: 
+<ol>
+<li>by starting from the <k>logical architecture</k> of the system, 
+define the <k>concrete</k> architecture of the system and the behavior of each component  .</li>
+
+</ol>
+
+</div>
+	<!--
+    <h2>Testing</h2>
+    <div class="remark">
+    <ks>MAIN GOALS</ks>:
+    <ol>
+    <li>complete the <k>functional TestPlans</k> according to the project code and execute them.</li>
+    </ol>
+
+    </div>
+
+    <h2>Deployment</h2>
+
+    <div class="remark">
+    <ks>MAIN GOALS</ks>:
+    <ol>
+    <li> prepare the  software application to run and operate in a specific environment.</li>
+    </ol>
+     </div>
+    It involves installation, configuration, testing and making changes to optimize the performance of the software.
+    It can either be carried out manually or (hopefully) through automated systems.
+
+
+
+
+    <h2>Maintenance</h2>
+    <div class="remark">
+    <ks>MAIN GOALS</ks>:
+    <ol>
+    <li>modify the software product after delivery to correct faults,
+    to improve performance or other attributes. </li>
+    </ol>
+     </div>
+    A common perception of maintenance is that it merely involves fixing defects.
+    However, one study indicated that over <tt>80%</tt> of maintenance effort is used for non-corrective actions.
+
+
+    <h1 id="activity">UN QUADRO DI INSIEME (da esperienza 2019/2020)</h1>
+
+
+
+     <p>
+    Il nostro obiettivo è costruire software impostando
+    (in modo 'agile', <em>non water-fall</em>, cioè con possibilità di modifiche dopo un ciclo di sviluppo):
+    <ol>
+    <li>l'analisi dei requisiti </li>
+    <li>l'analisi del problema</li>
+    <li>la progettazione e lo sviluppo della applicazione</li>
+    <li>il deployment (in docker) </li>
+    </ol>
+
+    L'obiettivo finale è partire fin dalla analisi dei requisiti con la definizione di MODELLI
+    ESEGUIBILI e PIANI DI TESTING che si estendono/modificano nelle varie fasi.
+    </p><p>
+    Per questo fine può essere opportuno definire un 'progetto preliminare' da inserire in <em>UN SOLO
+    workspace</em> (denominato ad esempio  <ks>xxxISS2021</ks>, con <ks>xxx</ks>=nome del Team).
+    In questo workspace andranno inseriti altri progetti, da quando inizia la fase 3.
+    </p><p>
+    L'analisi del problema dovrebbe produrre un modello che esprime la architettura logica
+    del sistema e pone in luce l'<em>Abstraction Gap</em> (se esiste) rispetto alle tecnologie di riferimento
+    per la implementazione (per noi Java/Kotlin).
+    </p><p>
+    Per applicazioni relative a <em>sistemi distribuiti eterogenei</em>, partiamo
+    dalla constatazione che esiste 'di base' un Abstraction Gap rispetto a Java/Kotlin
+    che ci porta  a definire e realizzare un insieme di layer di supporto a livelli  di astrazione
+    crescente che culminerà della definizione del
+    <em>metamodello QAK</em> e della relativa piattaforma di supporto (Plugin eclipse).
+    </p><p>
+    Va sottolineato che ogni specifico problema di norma può indurre un analista/progettista a individuare altri
+    Abstraction Gap rispetto al metamodello <tt>QAK</tt> stesso, in accordo a un 'processo evolutivo'
+    non predicibile e senza fine.
+    </p>
+
+    <h2>Lo sviluppo 'agile'</h2>
+    <p>
+    L'articolazione dello sviluppo in SPRINT (Scrum) inizia dopo l'analisi del problema,
+    e si basa sulla opportunità di affrontare i requisiti in modo incrementale.
+    </p><p>
+    Di solito seguiamo un approccio <em>'dal semplice al complesso'</em>,
+    introducendo un opportuno insieme di ASSUNZIONI. Ma ovviamente questo non è
+    l'unico criterio possibile nè quello sempre più opportuno.
+    </p><p>
+    Ad esempio il primo SPRINT della applicazione del
+    <a href="http://htmlpreview.github.io/?https://github.com/anatali/iss2020LabBo/blob/master/it.unibo.issLabStart/userDocs/TemaFinaleBo20.html"
+    target="web">TemaFinaleBo20.html</a>
+
+    può essere volto alla costruzione di un prototipo
+    relativo al caso di un solo cliente che entra, ordina, consuma ed esce (senza incorrere
+    nel problema 'maxstaytime' ).
+    </p><p>
+    Una volta arrivati al <em>'done'</em> (terminologia SCRUM) di uno SPRINT, per decidere come impostare il successivo SPRINT
+    vanno inooltre sempre considerati anche aspetti di tipo economico-organizzativo,
+    in modo da assicurare che il processo di sviluppo si possa compiere nei tempi stabiliti e con costi contenuti.
+    </p><p>
+    Ogni SPRINT dovrebbe includere opportuni test   (a partire dai <i>Piani di Testing</i> già delineati/definiti nella
+    fase di analisi dei requisiti) da eseguire al termine dello SPRINT.
+    Inoltre vanno considerate le fasi di <em>SPRINT-review</em>
+    e <em>SPRINT-retrospective</em> che potrebbero essere condotte dopo un meeting con il committente
+    (cioè con il docente).
+    </p><p>
+    Dunque il <b>numero e le finalità degli SPRINT sono definiti dal Team</b> di sviluppo, dopo le interazioni
+    suddette con con il committente.
+    </p><p>
+    Come detto, ogni SPRINT andrebbe inserito in un apposito nuovo progetto nel workspace
+    <ks>xxxISS2020</ks> e salvato in un apposito GIT repo, il cui indirizzo  viene inviato al committente
+    al momento della consegna.
+    </p>
+
+    <h2>History e non documentazione ex-post</h2>
+    <p>
+    E' importante che un progetto relativo ad uno SPRINT contenga un folder (<ks>userDocs</ks>)
+    che include un documento organizzato secondo il template HTML proposto in questo documento.
+
+    </p><p>
+    Nel documento vanno riportati, per ogni sezione, i PUNTI-CHIAVE
+    (come se fosse un presentazione da illustrare in un meeting), facendo riferimento,
+    se si ritiene opportuno, ad altri documenti per  descrizioni/discussioni più dettagliate.
+
+    </p><p>
+    Ovviamente lo <tt>SPRINT/N</tt> potrà fare riferimento con opportuni link - se e' il caso - a documenti dello
+    <tt>SPRINT/N-1</tt> o precedenti.
+    </p>
+    -->
+<!--
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+	      	
+<br/><br/> 	
+</div>  
+-->
+	<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+		By Giulio Tripi email: giulio.tripi@studio.unibo.it<br>
+		<img src="./img/giulioTripi.png" alt="mbot" width="15%" height="15%"><br>
+		GitHub repository: <a href="https://github.com/giuliotripi/tripiGiulio" style="color:white">https://github.com/giuliotripi/tripiGiulio</a>
+	</div>
+</div> <!-- ./div.body -->
+</body>
+</html>
