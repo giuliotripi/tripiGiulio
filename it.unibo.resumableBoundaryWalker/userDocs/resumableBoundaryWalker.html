@@ -287,6 +287,7 @@ cognome_nome_resumablebw.pdf
 	and the position of the robot at the moment of map generation. (aka <ks>map</ks>)
 	<li><b>HOME</b>: position in the environment where the robot starts moving and where it has to return.
 	<li><b>find an obstacle</b>: impact with something.
+	<li><b>stop</b>: the robot stops ASAP: when it finishes the previous move without starting the next move
 </ol>
 <ks>FUNCTIONAL TESTPLANS:</ks><br>
 	It is necessary to check that the robot correctly makes the map of the environment, without using other components or human help.
@@ -401,12 +402,10 @@ When I start the application, I want the robot to do an anti-clockwise trip of t
 
 <h2>Project</h2> 
 <div class="remark">
-<ks>MAIN GOALS</ks>: 
-<ol>
-<li>by starting from the <k>logical architecture</k> of the system, 
-define the <k>concrete</k> architecture of the system and the behavior of each component  .</li>
-
-</ol>
+Below there is the UML diagram of the system.
+	<a href="img/resumableBoundaryWalker1.png" target="_blank">
+		<img src="img/resumableBoundaryWalker1.png" alt="UML diagram" width="100%">
+	</a>
 
 </div>
 	<!--
@@ -546,7 +545,8 @@ define the <k>concrete</k> architecture of the system and the behavior of each c
 	<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
 		By Giulio Tripi email: giulio.tripi@studio.unibo.it<br>
 		<img src="./img/giulioTripi.png" alt="mbot" width="15%" height="15%"><br>
-		GitHub repository: <a href="https://github.com/giuliotripi/tripiGiulio" style="color:white">https://github.com/giuliotripi/tripiGiulio</a>
+		GitHub repository: <a href="https://github.com/giuliotripi/tripiGiulio" style="color:white">https://github.com/giuliotripi/tripiGiulio</a><br>
+		The development branch of this project is <b>compito0322</b>
 	</div>
 </div> <!-- ./div.body -->
 </body>

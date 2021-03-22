@@ -43,7 +43,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("it.unibo.resumableBoundaryWalker.App")
+    mainClass.set("it.unibo.resumableBoundaryWalker.ResumableBoundaryWalker")
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {

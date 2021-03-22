@@ -15,11 +15,11 @@ import it.unibo.supports.IssCommSupport;
 import it.unibo.supports.RobotApplicationStarter;
 
 @ArilRobotSpec
-public class ClientBoundaryWebsockArilAsynch {
+public class ResumableBoundaryWalker {
     private RobotInputController controller;
     private ActorRobotObserver actorObs = new ActorRobotObserver();
     //Constructor
-    public ClientBoundaryWebsockArilAsynch(IssOperations rs){
+    public ResumableBoundaryWalker(IssOperations rs){
         IssCommSupport rsComm = (IssCommSupport)rs;
         controller = new RobotInputController(rsComm, true, true );
         rsComm.registerObserver( controller );
@@ -37,9 +37,9 @@ public class ClientBoundaryWebsockArilAsynch {
     public static void main(String args[]){
         try {
             System.out.println("ClientBoundaryWebsockBasicAsynch | main start n_Threads=" + Thread.activeCount());
-            Object appl = RobotApplicationStarter.createInstance(ClientBoundaryWebsockArilAsynch.class);
+            Object appl = RobotApplicationStarter.createInstance(ResumableBoundaryWalker.class);
             System.out.println("ClientBoundaryWebsockBasicSynch  | appl n_Threads=" + Thread.activeCount());
-            String trip = ((ClientBoundaryWebsockArilAsynch)appl).doBoundary();
+            String trip = ((ResumableBoundaryWalker)appl).doBoundary();
             System.out.println("ClientBoundaryWebsockBasicAsynch | trip="   );
             System.out.println( trip  );
             System.out.println("ClientBoundaryWebsockBasicAsynch | main end n_Threads=" + Thread.activeCount());

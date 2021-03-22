@@ -17,7 +17,7 @@ public class RobotBoundaryLogic {
     private int stepNum = 1;
     private boolean boundaryWalkDone = false;
     private boolean usearil = false;
-    private int moveInterval = 1000;
+    private int moveInterval = 4000;
     private RobotMovesInfo robotInfo;
     //public enum robotLang {cril, aril}    //todo
 
@@ -28,7 +28,7 @@ public class RobotBoundaryLogic {
         robotInfo.showRobotMovesRepresentation();
     }
 
-    public void doBoundaryGoon() {
+    public void doBoundaryGoOn() {
         rs.request(usearil ? MsgRobotUtil.wMsg : MsgRobotUtil.forwardMsg);
         delay(moveInterval); //to reduce the robot move rate
     }
@@ -67,7 +67,7 @@ public class RobotBoundaryLogic {
                     return;
                 }
                 stepNum++;
-                doBoundaryGoon();
+                doBoundaryGoOn();
                 return;
             }
             //the move is moveForward
@@ -77,7 +77,7 @@ public class RobotBoundaryLogic {
             }
             if (!obstacle) {
                 updateMovesRep("w");
-                doBoundaryGoon();
+                doBoundaryGoOn();
             }
             robotInfo.showRobotMovesRepresentation();
         } else { //stepNum > 4
